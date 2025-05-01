@@ -3,29 +3,21 @@
     <h3>Counter: {{ counter }}</h3>
     <h3>Square: {{ squareCounter }}</h3>
     <div>
-      <button @click="add1">+1</button>
-      <button @click="minus1">-1</button>
+      <button @click="addCounter">+1</button>
+      <button @click="minusCounter">-1</button>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { useCounter } from '@/composables/useCounter';
 
 interface Props {
   value?: number;
 }
 
 const props = defineProps<Props>();
-
-const counter = ref(props.value ?? 0);
-const add1 = () => {
-  counter.value += 1;
-};
-const minus1 = () => {
-  counter.value -= 1;
-};
-const squareCounter = computed(() => counter.value * counter.value);
+const { counter, squareCounter, addCounter, minusCounter } = useCounter(props.value ?? 0);
 </script>
 
 <style scoped>
