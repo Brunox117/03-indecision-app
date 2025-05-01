@@ -1,17 +1,7 @@
 <template>
-  <h1>Mi primera app</h1>
-  <hr />
-  <MyCounter />
-  <MyCounterScript :value="3" />
+  <IndecisionView />
 </template>
 
 <script lang="ts" setup>
-import MyCounter from './components/MyCounter.vue';
-import MyCounterScript from './components/MyCounterScript.vue';
+import IndecisionView from '@/views/IndecisionView.vue';
 </script>
-
-<style scoped>
-h1 {
-  color: green;
-}
-</style>
